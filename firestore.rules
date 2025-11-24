@@ -1,0 +1,28 @@
+// firestore.rules
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isSignedIn() { return request.auth != null; }
+
+    match /productos/{id} {
+      allow read: if true;
+      // escribe según tu flujo (si no tienes admin, deja solo read)
+      allow write: if false;
+    }
+
+    match /reseñas/{rid} {
+      allow read: if true;
+      // crear solo si está logueado
+      allow create: if isSignedIn();
+      // editar/borrar solo el autor
+      allow update, delete: if isSignedIn() && request.auth.uid == resource.data.userId;
+    }
+
+    // bloquea cualquier otra colección accidental
+    match /{document=**} {
+      allow read: if true;
+      allow write: if false;
+    }
+  }
+}

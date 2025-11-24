@@ -1,0 +1,32 @@
+{
+  "name": "piggybeat-web",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "seed:debug": "node scripts/seed_debug.js"
+  },
+  "dependencies": {
+    "chart.js": "^4.5.1",
+    "firebase": "^10.12.4",
+    "mongodb": "^7.0.0",
+    "next": "14.2.3",
+    "nodemailer": "^7.0.9",
+    "react": "18.2.0",
+    "react-chartjs-2": "^5.3.1",
+    "react-dom": "18.2.0",
+    "react-hot-toast": "^2.4.1",
+    "swr": "^2.2.5"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.17",
+    "dotenv": "^16.4.5",
+    "eslint": "8.57.0",
+    "eslint-config-next": "14.2.3",
+    "postcss": "^8.4.35",
+    "tailwindcss": "^3.4.4"
+  }
+}
